@@ -15,20 +15,22 @@ class FactGenerator(object):
         file = random.choice(os.listdir("/Users/phillipoliveria/PycharmProjects/puppy_facts/src/insta_urls"))
         lines = open("/Users/phillipoliveria/PycharmProjects/puppy_facts/src/insta_urls/{}".format(file)).read().splitlines()
         while any([(img.endswith('.mp4')), (img == "")]):
-            img = random.choice(lines)
+            line = random.choice(lines)
+            img = line.split(", ")[0]
+            ts = line.split(", ")[1]
         insta_tag = "@" + os.path.basename(file).strip('.txt')
-        return img, insta_tag
+        return img, insta_tag, ts
 
     @classmethod
     def puppy_fact_attachment(cls):
-        img, insta_tag = cls.puppy_image_generator()
+        img, insta_tag, ts = cls.puppy_image_generator()
         attachment = [
             {
                 "fallback": "Puppy Facts.",
                 "color": "#36a64f",
                 "author_name": insta_tag,
                 "image_url": img,
-                "ts": 123456789
+                "ts": int(ts)
             }
         ]
         return attachment

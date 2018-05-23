@@ -12,6 +12,8 @@ def parse_json_files_for_img_urls():
                       "w") as i:
                 for img in data:
                     for s in img['urls']:
-                        i.write(str(s) + "\n")
+                        i.write(str(s) + ", " + str(img['taken_at_timestamp']) + "\n")
+
+parse_json_files_for_img_urls()
 
 

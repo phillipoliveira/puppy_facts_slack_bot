@@ -1,9 +1,9 @@
-import os
 from flask import Flask, request, Response
 from src.models import slack_commands
 from src.models.fact_generator import FactGenerator
 from src.configs import Configs
-
+import time
+import random
 
 app = Flask(__name__)
 config = Configs()
@@ -31,3 +31,6 @@ def test():
 
 if __name__ == "__main__":
 	app.run(debug=True)
+
+
+

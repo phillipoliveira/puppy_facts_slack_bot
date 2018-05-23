@@ -2,11 +2,12 @@ from slackclient import SlackClient
 from src.configs import Configs
 
 config = Configs()
-SLACK_TOKEN= config.outgoing_key
-slack_client = SlackClient(SLACK_TOKEN)
+slack_client = SlackClient("xoxp-18873171831-63318799281-363547280834-5b242eb4a4ccb78212e2e28b38abf0ab")
 slack_client.api_call("api.test")
 slack_client.api_call("auth.test")
 
+SLACK_TOKEN = "xoxp-18873171831-63318799281-363547280834-5b242eb4a4ccb78212e2e28b38abf0ab"
+slack_client = SlackClient(SLACK_TOKEN)
 
 def list_channels():
     channels_call = slack_client.api_call("channels.list")
